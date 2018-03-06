@@ -1,6 +1,5 @@
 
 
-
 const topics =["Game Boy", "Nintendo", "Dungeons and Dragons","He-Man"]
 
 
@@ -31,14 +30,14 @@ function renderButtons(){
     });
 
 
-}
+}   
 
 function displayGifs(json){
     console.log(json);
     $('#image-container').empty();
     json.data.forEach(function(value, index){
         $('<p>').text('Rated: '+ value.rating).addClass('img-fluid').appendTo('#image-container')
-        $('<img>').attr('src',value.images.downsized.url).appendTo('#image-container')
+        $('<img>').attr('src',value.images.fixed_height_still.url).addClass('still').appendTo('#image-container')
     });
 }
 
@@ -53,4 +52,8 @@ $('.submit-button').on('click', function(event){
     let gif = $('#search-box').val().trim();
     topics.push(gif);
     renderButtons();
+});
+
+$(document).on('click','.still', function(){
+    console.log(this);
 });
