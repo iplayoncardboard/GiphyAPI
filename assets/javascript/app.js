@@ -25,7 +25,7 @@ function renderButtons(){
     topics.forEach(function(value,index){
         let btn = $('<button>');
         btn.text(value);
-        btn.addClass('btn btn-light topic-button');
+        btn.addClass('btn btn-light topic-button mx-2');
         btn.attr('data-search',value);
         btn.appendTo('.button-div');
     });
@@ -35,6 +35,11 @@ function renderButtons(){
 
 function displayGifs(json){
     console.log(json);
+    $('#image-container').empty();
+    json.data.forEach(function(value, index){
+        $('<p>').text('Rated: '+ value.rating).addClass('img-fluid').appendTo('#image-container')
+        $('<img>').attr('src',value.images.downsized.url).appendTo('#image-container')
+    });
 }
 
 $(document).on('click', '.topic-button', function(event){
