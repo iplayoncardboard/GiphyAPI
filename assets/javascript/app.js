@@ -36,8 +36,9 @@ function displayGifs(json){
     console.log(json);
     $('#image-container').empty();
     json.data.forEach(function(value, index){
-        $('<p>').text('Rated: '+ value.rating).addClass('img-fluid').appendTo('#image-container')
-        $('<img>').attr('src',value.images.fixed_height_still.url).addClass('still').appendTo('#image-container')
+        $('<p>').text('Rated: '+ value.rating).addClass('img-fluid').appendTo('#image-container');
+        $('<img>').attr('src',value.images.fixed_height_still.url).addClass('still').attr('data-name',value.id).appendTo('#image-container');
+        $('<img>').attr('src',value.images.fixed_height.url).addClass('moving').attr('data-name',value.id).css('display', 'none').appendTo('#image-container');
     });
 }
 
@@ -54,6 +55,10 @@ $('.submit-button').on('click', function(event){
     renderButtons();
 });
 
-$(document).on('click','.still', function(){
+$(document).on('click','.still', function(event){
     console.log(this);
+    console.log(event);
+    console.log(event.target.dataset.name);
+    // $("img").data( 'data-name', this)
+    
 });
