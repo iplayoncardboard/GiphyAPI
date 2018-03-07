@@ -56,9 +56,7 @@ $('.submit-button').on('click', function(event){
 });
 
 $(document).on('click','.still', function(event){
-    console.log(this);
-    console.log(event);
-    console.log(event.target.dataset.name);
-    // $("img").data( 'data-name', this)
     
+    let id = $(this).attr("data-name");
+    console.log(id);
 });
