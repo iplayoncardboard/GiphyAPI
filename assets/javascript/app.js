@@ -37,8 +37,7 @@ function displayGifs(json){
     $('#image-container').empty();
     json.data.forEach(function(value, index){
         $('<p>').text('Rated: '+ value.rating).addClass('img-fluid').appendTo('#image-container');
-        $('<img>').attr('src',value.images.fixed_height_still.url).addClass('still').attr('data-name',value.id).appendTo('#image-container');
-        $('<img>').attr('src',value.images.fixed_height.url).addClass('moving').attr('data-name',value.id).css('display', 'none').appendTo('#image-container');
+        $('<img>').attr('src',value.images.fixed_width_small_still.url).addClass('pic').attr('data-still',value.images.fixed_width_small_still.url).attr('data-moving',value.images.fixed_width_small.url).attr('data-state','still').appendTo('#image-container');
     });
 }
 
@@ -55,8 +54,15 @@ $('.submit-button').on('click', function(event){
     renderButtons();
 });
 
-$(document).on('click','.still', function(event){
-    
-    let id = $(this).attr("data-name");
-    console.log(id);
+$(document).on('click','.pic', function(event){
+    let state = $(this).attr('data-state');
+    if(state==='still'){
+        $(this).attr('src',$(this).attr('data-moving'));
+        $(this).attr('data-state', 'moving');
+    }
+    else{
+        $(this).attr('src',$(this).attr('data-still'));
+        $(this).attr('data-state', 'still');
+    }
+
 });
