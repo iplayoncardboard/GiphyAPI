@@ -88,13 +88,13 @@ $('#pmrc').on('click', function(){
         $(this).attr('src', './assets/images/tipper.jpg');
         //change class to nice.
         $(this).toggleClass('naughty');
-        $(this).addClass('nice');
+      
     }
     else{
         // change img src to pwec,
         $(this).attr('src', './assets/images/pwec.png');
          //set class to naughty
-        $(this).toggleClass('nice');
-        $(this).addClass('naughty');
+        $(this).toggleClass('naughty');
+        
     }
     });
