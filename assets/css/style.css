@@ -1,8 +1,44 @@
-still{
-    display: block;
+body{
+    background-image: url('../images/deep.gif');
+}
+
+p{
+    font-family: 'Audiowide', cursive;
+    color: #8952b8;
+    font-weight: bold;
+    font-size: 2em;
 
 }
 
-moving {
-    display:none;
+.btn-light{
+    font-family: 'Press Start 2P', cursive;
+    color: greenyellow;
+    background-color: #000000;
+}
+
+.btn-dark{
+    font-family: 'Audiowide', cursive;
+    color: #eb0a96;
+    background-color: #53c5dd;
+}
+
+.btn-dark:hover{
+    font-family: 'Audiowide', cursive;
+    color:  #53c5dd;
+    background-color: #eb0a96;
+}
+
+.jumbotron{
+    background-image: url('../images/deep.gif');
+}
+
+.display-4{
+    font-family: 'Press Start 2P', cursive;
+    color: #53c5dd;
+}
+
+#pmrc{
+    width: 200px;
+    margin: 0px;
+    
 }
