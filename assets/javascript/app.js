@@ -50,7 +50,7 @@ function displayGifs(json){
         json.data.forEach(function(value, index){
             
             let frame = $("<div>").addClass('col-4');
-            $('<p>').text('Rated: '+ value.rating).addClass('img-fluid').appendTo(frame);
+            $('<p>').text('Rated: '+ value.rating).addClass('img-fluid my-2').appendTo(frame);
             $('<img>').attr('src',value.images.fixed_width_still.url).addClass('pic').attr('data-still',value.images.fixed_width_still.url).attr('data-moving',value.images.fixed_width.url).attr('data-state','still').appendTo(frame);
             frame.appendTo('#image-container');
         });
@@ -64,9 +64,11 @@ $(document).on('click', '.topic-button', function(event){
 
 $('.submit-button').on('click', function(event){
     event.preventDefault();
-    let gif = $('#search-box').val().trim();
+    if($('#search-box').val()){
+    let gif = $('#search-box').val();
     topics.push(gif);
     renderButtons();
+    }
 });
 
 $(document).on('click','.pic', function(event){

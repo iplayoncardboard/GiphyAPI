@@ -7,6 +7,7 @@ p{
     color: #8952b8;
     font-weight: bold;
     font-size: 2em;
+    background-color: rgba(255, 255, 255, 0.9);
 
 }
 
@@ -28,6 +29,11 @@ p{
     background-color: #eb0a96;
 }
 
+.counter{
+    margin: auto;
+    display:block;
+}
+
 .jumbotron{
     background-image: url('../images/deep.gif');
 }
@@ -40,5 +46,5 @@ p{
 #pmrc{
     width: 200px;
     margin: 0px;
-    
+
 }
