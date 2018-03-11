@@ -1,6 +1,4 @@
-
-
-const topics =["Game Boy", "Nintendo", "Dungeons and Dragons","He-Man", "GI Joe", 'Thunder Cats', 'Teenage Mutant Ninja Turtles']
+const topics =["Game Boy", "Nintendo", "Dungeons and Dragons","He-Man", "GI Joe",'Pearl Jam','Thunder Cats', 'Teenage Mutant Ninja Turtles','Nirvana']
 
 
 renderButtons();
@@ -18,8 +16,6 @@ function search(item){
         apiURL =  'https://api.giphy.com/v1/gifs/search?api_key='+apiKey+'&q='+item+'&limit=10&rating=pg';
     }
     
-   
-   
     $.ajax(
     {url:apiURL,
         method: 'GET'
@@ -64,10 +60,11 @@ $(document).on('click', '.topic-button', function(event){
 
 $('.submit-button').on('click', function(event){
     event.preventDefault();
-    if($('#search-box').val()){
+    if($('#search-box').val()&&!topics.includes($('#search-box').val())){
     let gif = $('#search-box').val();
     topics.push(gif);
     renderButtons();
+    $('#search-box').val("");
     }
 });
 
@@ -97,6 +94,5 @@ $('#pmrc').on('click', function(){
         $(this).attr('src', './assets/images/pwec.png');
          //set class to naughty
         $(this).toggleClass('naughty');
-        
     }
     });
